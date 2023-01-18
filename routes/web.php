@@ -26,6 +26,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'showProfile'])->name('profile');
 
-    Route::get('/edit_profile', [App\Http\Controllers\ProfileController::class, 'showProfile'])->name('profile');
+    Route::get('/edit_profile', [App\Http\Controllers\ProfileController::class, 'showEditProfile'])->name('edit_profile');
+
+    Route::put('/update_profile', [App\Http\Controllers\ProfileController::class, 'updateProfile']);
 });
 // prevent-back-history(cyw, e)

@@ -12,6 +12,14 @@
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
+                    @elseif (session('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                    </div>
+                    @elseif (session('error_warning'))
+                    <div class="alert alert-warning" role="alert">
+                        {{ session('error_warning') }}
+                    </div>
                     @endif
 
                     <div>
@@ -54,7 +62,7 @@
                     <hr>
 
                     <div>
-                        <h4>ID</h4>
+                        <h4>Register date</h4>
                         {{ $user -> register_date }}
                     </div>
 
@@ -79,7 +87,7 @@
                     <hr>
 
                     <div>
-                        <a class="btn btn-primary" href="#">Edit</a>
+                        <a class="btn btn-primary" href="{{ url('edit_profile') }}">Edit</a>
                     </div>
 
                 </div>

@@ -14,7 +14,7 @@
                     </div>
                     @endif
 
-                    <from method="POST" action="{{ url('update_profile') }}">
+                    <form method="POST" action="{{ url('update_profile') }}">
                         @csrf
                         @method('PUT')
 
@@ -23,12 +23,6 @@
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user -> name }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
@@ -39,7 +33,7 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user -> email }}"  readonly>
 
                                 <div class="col-md-8">
-                                    <a class="btn btn-primary col-md-4" href="#">Change email</a>
+                                    <a class="btn btn-primary col-md-6" href="#">Change email</a>
                                 </div>
                             </div>
                         </div>
@@ -62,11 +56,20 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="referral_id" class="col-md-4 col-form-label text-md-end">{{ __('Referral ID') }}</label>
+                            <label for="referral_id" class="col-md-4 col-form-label text-md-end">{{ __('Referral ID(Optional)') }}</label>
 
                             <div class="col-md-6">
                                 <input id="referral_id" type="number" class="form-control" name="referral_id" value="{{ $user -> referral_id }}">
                             </div>
+
+                            @if (\Session::has('referral_id_error'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li>{!! \Session::get('referral_id_error') !!}</li>
+                                </ul>
+                            </div>
+                            @endif
+
                         </div>
 
                         <div class="row mb-0 p-3">
@@ -77,7 +80,17 @@
                             </div>
                         </div>
 
-                    </from>
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+
+                    </form>
 
                 </div>
             </div>
