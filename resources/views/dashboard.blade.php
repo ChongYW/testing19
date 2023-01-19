@@ -48,7 +48,10 @@
                     <a href="{{ url('transfer_page') }}">
                         <button class="btn btn-primary">Transfer</button>
                     </a>
-                    <button href="#" class="btn btn-warning">Withdraw</button>
+
+                    <a href="{{ url('withdraw_page') }}">
+                        <button href="#" class="btn btn-warning">Withdraw</button>
+                    </a>
 
                 </div>
             </div>

@@ -170,9 +170,87 @@ class TransactionController extends Controller
 
     }
 
-//    public function withdraw(Request $request)
-//    {
-//
-//    }
+    public function withdraw(Request $request)
+    {
+        $user = auth()->id();
+
+        $status = null;
+        $message = null;
+
+        $request->validate([
+            'target_wallet' => 'required',
+            'amount' => 'required',
+        ]);
+
+        if ($request->target_wallet == "capital")
+        {
+            $capitalType = "Capital";
+
+            $capitalWallet = Wallet::where('user_id', auth()->id())->where('wallet_type', $capitalType)->first();
+
+            if ($capitalWallet->amount >= $request['amount'])
+            {
+                $capitalWallet->amount -= $request['amount'];
+                $capitalWallet->save();
+
+                $targetWalletID = $capitalWallet->id;
+
+                Transaction::create([
+                    'date_time' => now(),
+                    'amount' => $request['amount'],
+//                'description',
+                    'transaction_type' => "Withdraw",
+                    'from_wallet_id' => $targetWalletID,
+                    'from_user_id' => $user,
+                    'to_wallet_id' => $targetWalletID,
+                    'to_user_id' => $user,
+                ]);
+
+                $status = 'status';
+                $message = 'Withdraw successfully!';
+
+            }else
+            {
+                $status = 'error';
+                $message = 'Current wallet amount not enough!';
+            }
+
+        }else
+        {
+            $bonusType = "Bonus";
+
+            $bonusWallet = Wallet::where('user_id', auth()->id())->where('wallet_type', $bonusType)->first();
+
+            if ($bonusWallet->amount >= $request['amount'])
+            {
+                $bonusWallet->amount -= $request['amount'];
+                $bonusWallet->save();
+
+                $targetWalletID = $bonusWallet->id;
+
+                Transaction::create([
+                    'date_time' => now(),
+                    'amount' => $request['amount'],
+//                'description',
+                    'transaction_type' => "Withdraw",
+                    'from_wallet_id' => $targetWalletID,
+                    'from_user_id' => $user,
+                    'to_wallet_id' => $targetWalletID,
+                    'to_user_id' => $user,
+                ]);
+
+                $status = 'status';
+                $message = 'Withdraw successfully!';
+
+            }else
+            {
+                $status = 'error';
+                $message = 'Current wallet amount not enough!';
+            }
+        }
+
+        return redirect('/dashboard')->with($status, $message);
+
+    }
 
 }

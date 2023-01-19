@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Transfer') }}</div>
+                <div class="card-header">{{ __('Withdraw') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,11 +14,11 @@
                     </div>
                     @endif
 
-                    <form method="POST" action="{{ url('transfer') }}">
+                    <form method="POST" action="{{ url('withdraw') }}">
                         @csrf
                         @method('PUT')
 
-                        <label for="transaction_type">Please select your target wallet, input target transfer ID and transfer amount :</label>
+                        <label for="transaction_type">Please select your target wallet and withdraw amount :</label>
 
                         <br>
 
@@ -30,19 +30,11 @@
                         <br>
                         <br>
 
-                        <input id="to_wallet_id" type="number" class="form-control" name="to_wallet_id" required autofocus placeholder="Target wallet ID">
+                        <input id="amount" type="number" step="any" class="form-control" name="amount" required autofocus placeholder="Withdraw amount">
 
                         <br>
 
-                        <input id="amount" type="number" step="any" class="form-control" name="amount" required autofocus placeholder="Transfer amount">
-
-                        <br>
-
-                        <input id="description" type="text" class="form-control" name="description" autofocus placeholder="Description(Optional)">
-
-                        <br>
-
-                        <button type="submit" class="btn btn-primary" >Transfer</button>
+                        <button type="submit" class="btn btn-primary" >Withdraw</button>
 
                     </form>
 

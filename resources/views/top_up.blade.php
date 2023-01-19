@@ -28,12 +28,13 @@
                         </select>
 
                         <br>
+                        <br>
 
                         <input id="amount" type="number" step="any" class="form-control" name="amount" required autofocus placeholder="Top-up amount">
 
                         <br>
 
-                        <button type="submit" class="btn btn-primary" >Trade</button>
+                        <button type="submit" class="btn btn-primary" >Top-up</button>
 
                     </form>
 
