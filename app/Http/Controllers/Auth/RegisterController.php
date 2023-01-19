@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Wallet;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -68,7 +69,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -77,6 +78,26 @@ class RegisterController extends Controller
             'register_date' => now(),
             // (cyw, s)
         ]);
+
+        Wallet::create([
+
+            'user_id' => $user->id,
+            'type' => 'USD',
+            'amount' => 0,
+            'wallet_type' => 'Capital',
+
+        ]);
+
+        Wallet::create([
+
+            'user_id' => $user->id,
+            'type' => 'USD',
+            'amount' => 0,
+            'wallet_type' => 'Bonus',
+
+        ]);
+
+        return $user;
     }
 
 }

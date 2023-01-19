@@ -29,5 +29,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::get('/edit_profile', [App\Http\Controllers\ProfileController::class, 'showEditProfile'])->name('edit_profile');
 
     Route::put('/update_profile', [App\Http\Controllers\ProfileController::class, 'updateProfile']);
+
+    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'showWallet']);
+
 });
 // prevent-back-history(cyw, e)
