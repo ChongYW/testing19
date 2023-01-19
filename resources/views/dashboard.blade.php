@@ -12,13 +12,13 @@
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
+                    @elseif (session('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                    </div>
                     @endif
 
                         <div>
-<!--                            <p>{{ $capitalWallet -> id }}</p>-->
-<!--                            <br>-->
-<!--                            <p>{{ $capitalWallet -> user_id }}</p>-->
-<!--                            <br>-->
                             <h3>Capital wallet</h3>
                             <br>
                             <p>Type : </p>
@@ -31,10 +31,6 @@
                     <hr>
 
                     <div>
-<!--                        <p>{{ $bonusWallet -> id }}</p>-->
-<!--                        <br>-->
-<!--                        <p>{{ $bonusWallet -> user_id }}</p>-->
-<!--                        <br>-->
                         <h3>Bonus wallet</h3>
                             <br>
                             <p>Type : </p>
@@ -49,7 +45,9 @@
                     <a href="{{ url('top_up_page') }}">
                         <button class="btn btn-success">Top-up</button>
                     </a>
-                    <button href="#" class="btn btn-primary">Transfer</button>
+                    <a href="{{ url('transfer_page') }}">
+                        <button class="btn btn-primary">Transfer</button>
+                    </a>
                     <button href="#" class="btn btn-warning">Withdraw</button>
 
                 </div>

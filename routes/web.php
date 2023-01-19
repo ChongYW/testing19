@@ -36,7 +36,13 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         return view('top_up');
     });
 
-    Route::put('/topUp', [App\Http\Controllers\TopUpController::class, 'topUp']);
+    Route::put('/topUp', [App\Http\Controllers\TransactionController::class, 'topUp']);
+
+    Route::get('/transfer_page', function () {
+        return view('transfer');
+    });
+
+    Route::put('/transfer', [App\Http\Controllers\TransactionController::class, 'transfer']);
 
 
 });
