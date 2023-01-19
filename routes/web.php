@@ -32,5 +32,12 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'showWallet']);
 
+    Route::get('/top_up_page', function () {
+        return view('top_up');
+    });
+
+    Route::put('/topUp', [App\Http\Controllers\TopUpController::class, 'topUp']);
+
+
 });
 // prevent-back-history(cyw, e)

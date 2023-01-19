@@ -15,6 +15,10 @@
                     @endif
 
                         <div>
+<!--                            <p>{{ $capitalWallet -> id }}</p>-->
+<!--                            <br>-->
+<!--                            <p>{{ $capitalWallet -> user_id }}</p>-->
+<!--                            <br>-->
                             <h3>Capital wallet</h3>
                             <br>
                             <p>Type : </p>
@@ -24,10 +28,14 @@
                             <p>{{ $capitalWallet -> amount }}</p>
                         </div>
 
-                        <hr>
+                    <hr>
 
-                        <div>
-                            <h3>Bonus wallet</h3>
+                    <div>
+<!--                        <p>{{ $bonusWallet -> id }}</p>-->
+<!--                        <br>-->
+<!--                        <p>{{ $bonusWallet -> user_id }}</p>-->
+<!--                        <br>-->
+                        <h3>Bonus wallet</h3>
                             <br>
                             <p>Type : </p>
                             <p>{{ $bonusWallet -> type }}</p>
@@ -38,7 +46,9 @@
 
                         <hr>
 
-                    <button href="#" class="btn btn-success">Top-up</button>
+                    <a href="{{ url('top_up_page') }}">
+                        <button class="btn btn-success">Top-up</button>
+                    </a>
                     <button href="#" class="btn btn-primary">Transfer</button>
                     <button href="#" class="btn btn-warning">Withdraw</button>
 
