@@ -61,21 +61,21 @@
                             </div>
                         </div>
 
-<!--                        (cyw, s)-->
-                        <div class="row mb-3">
-                            <label for="referral_id" class="col-md-4 col-form-label text-md-end">{{ __('Referral ID(Optional)') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="referral_id" type="number" class="form-control @error('referral_id') is-invalid @enderror" name="referral_id">
-
-                                @error('referral_id')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-<!--                        (cyw, e)-->
+<!--                        Got logic error, register user is able to insert itself ID in Referral ID. (cyw, s)-->
+<!--                        <div class="row mb-3">-->
+<!--                            <label for="referral_id" class="col-md-4 col-form-label text-md-end">{{ __('Referral ID(Optional)') }}</label>-->
+<!---->
+<!--                            <div class="col-md-6">-->
+<!--                                <input id="referral_id" type="number" class="form-control @error('referral_id') is-invalid @enderror" name="referral_id">-->
+<!---->
+<!--                                @error('referral_id')-->
+<!--                                <span class="invalid-feedback" role="alert">-->
+<!--                                        <strong>{{ $message }}</strong>-->
+<!--                                    </span>-->
+<!--                                @enderror-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        Got logic error, register user is able to insert itself ID in Referral ID. (cyw, e)-->
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

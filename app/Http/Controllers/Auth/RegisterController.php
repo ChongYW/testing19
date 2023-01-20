@@ -76,6 +76,7 @@ class RegisterController extends Controller
 
             // (cyw, s)
             'register_date' => now(),
+//            'referral_id' => $data['referral_id'],
             // (cyw, s)
         ]);
 
