@@ -50,6 +50,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
     Route::put('/withdraw', [App\Http\Controllers\TransactionController::class, 'withdraw']);
 
+    Route::get('/transaction_history', [App\Http\Controllers\TransactionHistoryController::class, 'showTransactionHistory']);
+
 
 });
 // prevent-back-history(cyw, e)

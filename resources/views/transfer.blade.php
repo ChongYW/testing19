@@ -22,15 +22,24 @@
 
                         <br>
 
-                        <select id="target_wallet" name="target_wallet">
-                            <option value="capital">Capital wallet</option>
-                            <option value="bonus">Bonus wallet</option>
-                        </select>
+<!--                        (transfer_v1, transfer_v2, start)-->
+<!--                        <select id="target_wallet" name="target_wallet">-->
+<!--                            <option value="capital">Capital wallet</option>-->
+<!--                            <option value="bonus">Bonus wallet</option>-->
+<!--                        </select>-->
+<!--                        (transfer_v1, transfer_v2, end)-->
 
                         <br>
                         <br>
 
-                        <input id="to_wallet_id" type="number" class="form-control" name="to_wallet_id" required autofocus placeholder="Target wallet ID">
+<!--                        (transfer_v1, transfer_v2, start)-->
+<!--                        <input id="to_wallet_id" type="number" class="form-control" name="to_wallet_id" required autofocus placeholder="Target wallet ID">-->
+<!--                        (transfer_v1, transfer_v2, end)-->
+
+
+<!--                        (transfer_v3, start)-->
+                        <input id="to_wallet_user_name" type="text" class="form-control" name="to_wallet_user_name" required autofocus placeholder="Target wallet user name">
+<!--                        (transfer_v3, end)-->
 
                         <br>
 
